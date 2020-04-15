@@ -1,5 +1,16 @@
+import {camera, renderer, scene} from "./game/game"
+
 document.body.appendChild((() => {
     let htmlDivElement = document.createElement("div");
     htmlDivElement.innerText = "hello world"
     return htmlDivElement
 })());
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+
+animate();
